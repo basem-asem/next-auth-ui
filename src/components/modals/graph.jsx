@@ -6,27 +6,31 @@ const months = [
 ];
 
 const data = [
-  10000, 9000, 10000, 11000, 10000, 11000, 9000,
-  10000, 11000, 10000, 9000, 11000,
+  10000, 20000, 10000, 20000, 10000, 20000, 10000, 20000, 10000, 20000, 10000, 20000,
 ];
 
 const Graph = () => {
   const [hoveredMonth, setHoveredMonth] = useState(null);
 
-  // Scale the data to fit the graph height (100px)
-  const graphHeight = 100;
+  // Graph dimensions
+  const graphHeight = 40; // Reduced height for the graph
+  const graphWidth = 400;
+  const middleY = graphHeight * 0.7; // Position the graph line lower
+
+  // Scale data to fit around the middle of the graph
   const maxValue = Math.max(...data);
-  const scaledData = data.map((value) => graphHeight - (value / maxValue) * graphHeight);
+  const scaledData = data.map(
+    (value) => middleY - (value / maxValue) * (graphHeight / 2)
+  );
 
   // Function to create smooth Bezier path
   const createSmoothPath = (points) => {
     return points.reduce((path, y, index, arr) => {
       if (index === 0) {
-        // Move to the first point
         return `M0 ${y}`;
       }
-      const prevX = (index - 1) * (400 / data.length);
-      const currX = index * (400 / data.length);
+      const prevX = (index - 1) * (graphWidth / data.length);
+      const currX = index * (graphWidth / data.length);
 
       const prevY = arr[index - 1];
       const cp1X = prevX + (currX - prevX) / 2;
@@ -41,10 +45,10 @@ const Graph = () => {
   return (
     <div className="w-full max-w-xl mx-auto p-4 bg-white rounded-3xl">
       <h2 className="text-lg font-semibold mb-4">Fans</h2>
-      <div className="relative h-40">
+      <div className="relative h-32">
         {/* Graph Lines */}
         <svg
-          viewBox="0 0 400 100"
+          viewBox={`0 0 375 ${graphHeight}`}
           className="w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -58,12 +62,13 @@ const Graph = () => {
 
           {/* Circle for the hovered data point */}
           {hoveredMonth !== null && (
-            <circle
-              cx={(hoveredMonth + 1) * (400 / data.length) - (400 / data.length) / 2}
-              cy={scaledData[hoveredMonth]}
-              r="5"
-              fill="yellow"
-            />
+           <circle
+           cx={hoveredMonth * (graphWidth / (data.length))}
+           cy={scaledData[hoveredMonth]}
+           r="5"
+           fill="yellow"
+         />
+         
           )}
         </svg>
 
@@ -89,7 +94,7 @@ const Graph = () => {
             key={index}
             onMouseEnter={() => setHoveredMonth(index)}
             onMouseLeave={() => setHoveredMonth(null)}
-            className={`px-2 py-1 border-gray-400 border rounded-full  ${
+            className={`px-2 py-1 border-gray-400 border rounded-full ${
               hoveredMonth === index ? "bg-black text-white" : "text-gray-700"
             }`}
           >
