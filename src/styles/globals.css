@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f6f5f9;
+  --foreground: #f6f5f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #f6f5f9;
+    --foreground: #ededed;
+  }
+}
+
+@font-face {
+  font-family: 'Avenir Book';
+  src: url('/fonts/Avenir-Book.tff') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LOGOTYPE';
+  src: url('/fonts/LOGOTYPE-Medium.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-LOGOTYPE {
+  font-family: 'LOGOTYPE';
+}
+
+
+* {
+  box-sizing: border-box !important;
+}
+
+body {
+  background: var(--background);
+  font-family: 'Avenir Book', sans-serif;
+}
+
+/* For WebKit Browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  height: 18px; /* Height of the scrollbar (horizontal) */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dadada; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #868686; /* Thumb color on hover */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f7ebebab; /* Color of the scrollbar track */
+  border-radius: 4px; /* Rounded corners for the track */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* For Firefox */
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 37px;
+  height: 21px;
+}
+
+.sm-switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 13px;
+}
+
+.switch input,
+.sm-switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider,
+.sm-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.sm-slider:before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #5767c9;
+}
+
+input:checked + .sm-slider {
+  background-color: #E0F53E;
+}
+
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #5767c9;
+}
+
+input:focus + .sm-slider {
+  box-shadow: 0 0 1px #E0F53E;
+}
+
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(16px);
+}
+
+input:checked + .sm-slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.sm-slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before,
+.sm-slider.round:before {
+  border-radius: 50%;
+}
+
+.triangle {
+  margin-left: 250px;
+  width: 20px;
+  height: 20px;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  transform: rotate(45deg);
+  margin-bottom: -10px;
+  background-color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.css-13cymwt-control{
+  width: 250px !important;
+}
+
+.css-13cymwt-control:hover{
+  width: 250px !important;
+}
+
+.css-19bb58m {
+  display: none !important;
+}
+
+.timezone .css-13cymwt-control {
+  width: 360px !important;
+}
+
+.modal-overlay {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  overflow: hidden;
+  z-index: 99998;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.inviteUserModal {
+  height: 480px;
+  width: 816px;
+  border-radius: 12px;
+  position: absolute;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  align-items: center;
+  flex-direction: column;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  background-color: #ffffff;
+  padding: 15px 40px;
+  border: none;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.display-none {
+  display: none;
+}
+
+.flexbox-fix:last-of-type span > div {
+  border-radius: 50% !important;
+}
+
+.scrolling {
+  animation: scroll 15s linear infinite; 
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
