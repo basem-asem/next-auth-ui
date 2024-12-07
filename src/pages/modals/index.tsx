@@ -15,7 +15,7 @@ import SmallSupport from "@/components/modals/smallSupportBox";
 
 const Modals = () => {
     return(
-        <div className="flex flex-col bg-[black] p-[30px] gap-[30px] w-screen">
+        <div className="flex flex-col bg-[black] p-[30px] gap-[30px] ">
             {/* <Cookies/>
             <div className="relative">
                 <NeccessaryCookies/>

@@ -15,12 +15,12 @@ const AvatarList = () => {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 bg-transparent rounded-md">
-      <div className="flex items-center gap-4 overflow-x-auto hide-scrollbar">
+    <div className=" bg-transparent rounded-md overflow-auto">
+      <div className="flex items-center gap-2 w-fit">
         {avatars.map((src, index) => (
           <div
             key={index}
-            className="w-20 h-20 rounded-3xl  overflow-hidden transition-transform"
+            className="w-[100px] h-20 rounded-3xl overflow-hidden transition-transform"
           >
             <img
               src={src}
@@ -31,7 +31,7 @@ const AvatarList = () => {
         ))}
 
         {/* Add button */}
-        <button className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-700 text-white text-xl hover:bg-gray-600">
+        <button className="w-20 h-20 flex items-center justify-center rounded-3xl font-semibold bg-[#666666]  text-2xl hover:bg-gray-600">
           +
         </button>
       </div>

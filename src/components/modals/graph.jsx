@@ -83,13 +83,13 @@ const Graph = () => {
       </div>
 
       {/* Month Selectors */}
-      <div className="flex justify-between mt-4">
+      <div className="flex justify-between mt-4 overflow-auto">
         {months.map((month, index) => (
           <button
             key={index}
             onMouseEnter={() => setHoveredMonth(index)}
             onMouseLeave={() => setHoveredMonth(null)}
-            className={`px-2 py-1 border-gray-400 border rounded-full ${
+            className={`px-2 py-1 border-gray-400 border rounded-full  ${
               hoveredMonth === index ? "bg-black text-white" : "text-gray-700"
             }`}
           >
