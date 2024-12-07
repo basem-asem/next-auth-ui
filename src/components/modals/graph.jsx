@@ -13,7 +13,7 @@ const Graph = () => {
   const [hoveredMonth, setHoveredMonth] = useState(null);
 
   // Graph dimensions
-  const graphHeight = 40; // Reduced height for the graph
+  const graphHeight = 50; // Reduced height for the graph
   const graphWidth = 400;
   const middleY = graphHeight * 0.7; // Position the graph line lower
 
@@ -48,7 +48,7 @@ const Graph = () => {
       <div className="relative h-32">
         {/* Graph Lines */}
         <svg
-          viewBox={`0 0 375 ${graphHeight}`}
+          viewBox={`0 0 375 10`}
           className="w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -65,8 +65,10 @@ const Graph = () => {
            <circle
            cx={hoveredMonth * (graphWidth / (data.length))}
            cy={scaledData[hoveredMonth]}
-           r="5"
-           fill="yellow"
+           r="4"
+           fill="white"
+           stroke="black"
+           strokeWidth="3"
          />
          
           )}
@@ -75,10 +77,10 @@ const Graph = () => {
         {/* Highlighted Value */}
         {hoveredMonth !== null && (
           <div
-            className="absolute bg-[#DFFC52] text-black px-2 py-1 text-sm rounded"
+            className="absolute bg-[#DFFC52] text-black px-4 py-1 text-sm rounded-3xl"
             style={{
               left: `${(hoveredMonth + 1) * (100 / data.length)}%`,
-              top: `${scaledData[hoveredMonth]}px`,
+              top: `${scaledData[hoveredMonth]+30}px`,
               transform: "translate(-50%, -150%)",
             }}
           >
