@@ -6,7 +6,7 @@ export default function SupportBox() {
         <img
           src="./images/share.png" // Replace with a valid image path
           alt="Dylan Grace"
-          className="mt-2 mr-2 absolute right-0 top-0 w-7 h-7"
+          className="mt-2 mr-2 z-0 absolute right-0 top-0 w-7 h-7"
         />
         <div className="flex justify-between mt-3">
           <div className="ml-6 mt-6">
@@ -23,7 +23,7 @@ export default function SupportBox() {
         </div>
       </div>
       {/* Middle Section */}
-      <div className="bg-[#E0F53E] pt-6 pb-0 flex justify-between flex-col rounded-t-3xl">
+      <div className="bg-[#E0F53E] -mt-4  pt-6 pb-0 flex justify-between flex-col rounded-t-3xl sticky">
         <p className="text-gray-800 pl-6 pb-16 pr-28">
           Speak with a Music <br></br> Expert today
         </p>
