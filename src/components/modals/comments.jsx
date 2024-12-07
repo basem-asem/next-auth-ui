@@ -42,7 +42,7 @@ export default function CommentsSidebar() {
         <div className="w-96 bg-white shadow-lg rounded-lg">
           <div className="flex justify-end">
             <button
-              className="rounded-full bg-gray-100 px-1.5 text-gray-300 mr-2 "
+              className="rounded-full bg-gray-100 px-2 text-gray-300 mr-2 mt-2"
               onClick={() => setShow(false)}
             >
               x
@@ -52,9 +52,9 @@ export default function CommentsSidebar() {
           <div className="p-4 border-b">
             <div className="flex justify-between items-center">
               <h2 className="text-lg text-black font-bold">Comments</h2>
-              <button className="text-gray-500 hover:text-gray-800">
-                <span className="text-sm">Open</span>
-                <span className="ml-2 text-sm text-gray-400">Resolved</span>
+              <button className="text-gray-500 bg-[#F8F8F8] hover:text-gray-800 p-[6px] rounded-lg">
+                <span className="text-xs bg-white py-[2px] px-[8px] rounded-md">Open</span>
+                <span className="ml-2 text-xs text-gray-400">Resolved</span>
               </button>
             </div>
           </div>
